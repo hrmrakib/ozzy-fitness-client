@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import Navbar from "@/components/Navbar";
@@ -7,6 +7,7 @@ import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { Provider } from "react-redux";
 import store from "@/redux/store";
 import { ToastContainer } from "react-toastify";
+import ClientComponent from "@/helper/ClientComponent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,12 +30,13 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Provider store={store}>
-          <Navbar></Navbar>
-          <AntdRegistry>{children}</AntdRegistry>
-          <Footer></Footer>
-          <ToastContainer  position="top-center" autoClose={1000}/>
+          <ClientComponent>
+            <Navbar></Navbar>
+            <AntdRegistry>{children}</AntdRegistry>
+            <Footer></Footer>
+            <ToastContainer position="top-center" autoClose={1000} />
+          </ClientComponent>
         </Provider>
-        
       </body>
     </html>
   );
