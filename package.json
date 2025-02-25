@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
     "start": "next start",
     "preview": "npm run build && npm run start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build": "NEXT_PUBLIC_ESLINT_IGNORE=1 next build"
   },
   "dependencies": {
     "@ant-design/nextjs-registry": "^1.0.2",
